@@ -1,0 +1,46 @@
+@startuml
+class ucf.assignments.Controller {
+- TableView<Item> tableView
+- TableColumn<Item,String> NameColumn
+- TableColumn<Item,String> DescriptionColumn
+- TableColumn<Item,String> DueDateColumn
+- TableColumn<Item,CheckBox> MarkCompleteColumn
+- TableColumn<Item,CheckBox> RemoveColumn
+~ ObservableList<Item> ItemList
++ void initialize()
+# void AddItem()
+# void removeItem()
+# void ClearList()
+# void DisplayAllItemsInList()
+# void DisplayCompleteItemsInList()
+# void DisplayIncompleteItemsInList()
+# void SaveList()
+# void LoadList()
+}
+class ucf.assignments.Item {
+- String Name
+- String Description
+- String DueDate
+- CheckBox MarkComplete
+- CheckBox Remove
++ String getName()
++ void setName(String)
++ String getDescription()
++ void setDescription(String)
++ String getDueDate()
++ void setDueDate(String)
++ CheckBox getMarkComplete()
++ Boolean getMarkCompleteBoolean()
++ void setMarkComplete(Boolean)
++ CheckBox getRemove()
++ Boolean getRemoveBoolean()
++ void setRemove(Boolean)
+}
+class ucf.assignments.MainApp {
++ void start(Stage)
++ {static} void main(String[])
+}
+
+
+javafx.application.Application <|-- ucf.assignments.MainApp
+@enduml
